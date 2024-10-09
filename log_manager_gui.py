@@ -32,7 +32,7 @@ class LogManager:
 
         with open(self.filename, 'w') as f:
             for log in logs:
-                log_time_str = log.split(']')[0][1:]  # Get the timestamp from the log
+                log_time_str = log.split(']')[0][1:]  
                 log_time = datetime.strptime(log_time_str, '%Y-%m-%d %H:%M:%S')
                 if (current_time - log_time).days <= days:
                     f.write(log)
@@ -97,7 +97,7 @@ class LogManagerGUI:
             messagebox.showwarning("Warning", "Please enter a log message.")
 
     def read_logs(self):
-        self.log_text.delete(1.0, tk.END)  # Clear current text
+        self.log_text.delete(1.0, tk.END)  
         logs = self.log_manager.read_logs()
         self.log_text.insert(tk.END, ''.join(logs))
 
